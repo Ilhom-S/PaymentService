@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
-using System.Web.Script.Serialization;
+using System.Threading.Tasks;
+using.System.J
 
-namespace PaymentService
+namespace project1
 {
     /// <summary>
     /// Class for Hgg payment server
@@ -76,7 +78,7 @@ namespace PaymentService
         {
             //transaction status must change to 1
             WebClient client = new WebClient();
-            Console.WriteLine("Preparing to make new transaction: {0}", payment);
+            Console.WriteLine("Preparing to make new transaction: {0}", payment.ToString());
             System.Threading.Thread.Sleep(5000);
             client.QueryString.Clear();
             //  int AgentID = 1;
@@ -95,13 +97,36 @@ namespace PaymentService
             // Decode and display the response.
             var response = Encoding.UTF8.GetString(reply);
             Console.WriteLine("Response from server:{0}", response);
-          //  payment.TransactionStatus = 1;
+            //payment.TransactionStatus = 1;
             JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
             var result = jsSerializer.DeserializeObject(response);
              Dictionary<string, object> obj2 = new Dictionary<string, object>();
              obj2=(Dictionary<string,object>)(result);
-             object val = obj2["ResponseStatus"];
-            Console.WriteLine(val);
+             string val = obj2["ResponseStatus"];
+            if(val=="-500"){
+                //Ошибка запроса
+                Payment.TransactionStatus = -1;
+            }
+            if(val=="10"){
+                //Транзакция Успешна
+                Payment.TransactionStatus = 2;
+            }
+            //Транзакция В обработке
+            if(val=="9"){
+                Payment.TransactionStatus = 1;
+            }
+            //Запрос Обрабатывается
+            if(val=="5"){
+                Payment.TransactionStatus = 1;
+            }
+            //Транзакция В обработке
+            if(val == "3"){
+                Payment.TransactionStatus = 1;
+            }
+            //Транзакция В обработке
+            if(val == "2"){
+                Payment.TransactionStatus = 1;
+            }
             return response;
         }
     }
