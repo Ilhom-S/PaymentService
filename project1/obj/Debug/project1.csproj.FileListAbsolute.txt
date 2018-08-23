@@ -1,0 +1,7 @@
+C:\Users\Mansur\source\repos\project1\project1\bin\Debug\project1.exe.config
+C:\Users\Mansur\source\repos\project1\project1\bin\Debug\project1.exe
+C:\Users\Mansur\source\repos\project1\project1\bin\Debug\project1.pdb
+C:\Users\Mansur\source\repos\project1\project1\obj\Debug\project1.csproj.CoreCompileInputs.cache
+C:\Users\Mansur\source\repos\project1\project1\obj\Debug\project1.exe
+C:\Users\Mansur\source\repos\project1\project1\obj\Debug\project1.pdb
+C:\Users\Mansur\source\repos\project1\project1\obj\Debug\project1.csprojAssemblyReference.cache
