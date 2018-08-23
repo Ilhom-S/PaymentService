@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
-namespace project1
+namespace PaymentService
 {
     /// <summary>
     /// Class for Hgg payment server
@@ -101,7 +100,7 @@ namespace project1
             var result = jsSerializer.DeserializeObject(response);
              Dictionary<string, object> obj2 = new Dictionary<string, object>();
              obj2=(Dictionary<string,object>)(result);
-             string val = obj2["ResponseStatus"];
+             object val = obj2["ResponseStatus"];
              System.Console.WriteLine(val);
             return response;
         }
