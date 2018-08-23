@@ -1,0 +1,7 @@
+C:\Projects\Mansour\PaymentService\project1\bin\Debug\PaymentService.exe.config
+C:\Projects\Mansour\PaymentService\project1\bin\Debug\PaymentService.exe
+C:\Projects\Mansour\PaymentService\project1\bin\Debug\PaymentService.pdb
+C:\Projects\Mansour\PaymentService\project1\obj\Debug\PaymentService.csprojAssemblyReference.cache
+C:\Projects\Mansour\PaymentService\project1\obj\Debug\PaymentService.csproj.CoreCompileInputs.cache
+C:\Projects\Mansour\PaymentService\project1\obj\Debug\PaymentService.exe
+C:\Projects\Mansour\PaymentService\project1\obj\Debug\PaymentService.pdb
