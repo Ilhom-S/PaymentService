@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using.System.J
+using System.Web.Script.Serialization;
 
-namespace project1
+namespace PaymentService
 {
     /// <summary>
     /// Class for Hgg payment server
@@ -102,30 +100,30 @@ namespace project1
             var result = jsSerializer.DeserializeObject(response);
              Dictionary<string, object> obj2 = new Dictionary<string, object>();
              obj2=(Dictionary<string,object>)(result);
-             string val = obj2["ResponseStatus"];
+             string val = obj2["ResponseStatus"].ToString();
             if(val=="-500"){
                 //Ошибка запроса
-                Payment.TransactionStatus = -1;
+                payment.TransactionStatus = -1;
             }
             if(val=="10"){
                 //Транзакция Успешна
-                Payment.TransactionStatus = 2;
+                payment.TransactionStatus = 2;
             }
             //Транзакция В обработке
             if(val=="9"){
-                Payment.TransactionStatus = 1;
+                payment.TransactionStatus = 1;
             }
             //Запрос Обрабатывается
             if(val=="5"){
-                Payment.TransactionStatus = 1;
+                payment.TransactionStatus = 1;
             }
             //Транзакция В обработке
             if(val == "3"){
-                Payment.TransactionStatus = 1;
+                payment.TransactionStatus = 1;
             }
             //Транзакция В обработке
             if(val == "2"){
-                Payment.TransactionStatus = 1;
+                payment.TransactionStatus = 1;
             }
             return response;
         }
